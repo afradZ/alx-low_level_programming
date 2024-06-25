@@ -3,7 +3,8 @@
 /**
  * main Entry point
  *
- * Retuen: always 0 (Success)
+ * Description: A program that prints _putchar followed by a new line.
+ * Return: always 0 (Success)
  */
 
 int main(void)
