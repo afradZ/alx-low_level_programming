@@ -8,20 +8,23 @@
  */
 char *rot13(char *str)
 {
-	int i, j;
-	char rot13_map[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *ptr = str;
+	char *letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *rot13 =   "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i;
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (*ptr)
 	{
-		if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+		for (i = 0; letters[i]; i++)
 		{
-			j = (str[i] - 'A') % 26;
-			if (str[i] >= 'a')
-			j += 26;
-			str[i] = rot13_map[j];
+			if (*ptr == letters[i])
+			{
+				*ptr = rot13[i];
+				break;
+			}
 		}
+		ptr++;
 	}
 
 	return (str);
 }
-
